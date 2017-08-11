@@ -1,13 +1,21 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import App from './App'
+import Vue from "vue"
+import App from "./App"
+import store from "./store"
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  template: '<App/>',
+  el: "#app",
+  store,
+  template: "<App/>",
   components: { App }
 })
+
+// init game 
+store.commit("initGame", "normal");
+
+// prevent context menu
+document.addEventListener("contextmenu", e => {e.preventDefault()}, false);
